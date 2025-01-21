@@ -1,5 +1,6 @@
 "use client"
 import TaskForm from "@/components/TaskForm";
+import TaskList from "@/components/TaskList";
 import { Task } from "@/types/task";
 import { getTasks, saveTasks } from "@/utils/localStorageHelper";
 import React, { useEffect, useState } from "react";
@@ -28,6 +29,7 @@ export default function Home() {
   return (
     <div>
       <TaskForm onAddTask={addTask}/>
+      <TaskList tasks={tasks} onToggleCompletion={toggleTaskCompletion}/>
     </div>
   );
 }
