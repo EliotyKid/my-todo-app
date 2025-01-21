@@ -9,6 +9,7 @@ interface TaskFormProps {
 export default function TaskForm({onAddTask}: TaskFormProps){
     const [title, setTitle] = useState<string>("");
     const [description, setDescription] = useState<string>("");
+    const [shortDescription, setShortDescription] = useState<string>("");
 
     const handleSubmit = (e: FormEvent): void => {
         e.preventDefault();
@@ -18,6 +19,7 @@ export default function TaskForm({onAddTask}: TaskFormProps){
             id: Date.now().toString(),
             title,
             description,
+            shortDescription,
             completed: false,
             createdAt: new Date().toISOString(),
         };
@@ -25,6 +27,7 @@ export default function TaskForm({onAddTask}: TaskFormProps){
         onAddTask(newTask);
         setTitle("");
         setDescription("");
+        setShortDescription("")
     }
 
     return(
@@ -34,6 +37,12 @@ export default function TaskForm({onAddTask}: TaskFormProps){
                 placeholder="Task Title"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
+            />
+            <input
+                type="text"
+                placeholder="Short Description"
+                value={shortDescription}
+                onChange={(e) => setShortDescription(e.target.value)}
             />
             <textarea 
                 placeholder="Task Description"

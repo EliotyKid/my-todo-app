@@ -14,7 +14,7 @@ export default function TaskItem({task, onToggleCompletion}: TaskItemProps){
                 onChange={() => onToggleCompletion(task.id)}
             />
             <h3>{task.title}</h3>
-            <p>{task.description}</p>
+            <p>{task.shortDescription}</p>
             <small>Created at: {new Date(task.createdAt).toLocaleString()}</small>
         </li>
     )
